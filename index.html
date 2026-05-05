@@ -3,51 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Studio Motion — About</title>
+    <title>Orbit Studio — About</title>
+    <meta name="description" content="시네마틱한 인터랙션 기반 디지털 스튜디오 소개 페이지" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="noise"></div>
-    <header class="site-header">
-      <a class="logo" href="#">STUDIO MOTION</a>
-      <button class="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button>
-      <nav id="main-nav" class="nav">
+    <div class="bg-grid" aria-hidden="true"></div>
+    <header class="header">
+      <a class="brand" href="#top">ORBIT®</a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" class="nav">
         <a href="#about">About</a>
-        <a href="#team">Team</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#works">Works</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <main>
-      <section class="hero" id="about">
-        <p class="eyebrow">Creative Digital Studio</p>
-        <h1>We create immersive digital experiences for bold brands.</h1>
-        <p class="lead">
-          Lusion 스타일의 미니멀/시네마틱한 무드를 참고해, 브랜드 스토리와 인터랙션이 결합된 About 페이지를 구현했습니다.
+    <main id="top">
+      <section class="hero reveal" id="about">
+        <p class="kicker">Digital Experience Studio</p>
+        <h1>
+          We design
+          <span>motion-first</span>
+          brand experiences.
+        </h1>
+        <p class="hero-text">브랜드의 철학을 디지털 공간으로 번역하고, 사용자에게 오래 남는 인터랙션을 만듭니다.</p>
+      </section>
+
+      <section class="statement reveal" id="philosophy">
+        <p>
+          좋은 경험은 <strong>빠른 로딩</strong>과 <strong>선명한 스토리</strong>, 그리고
+          <strong>절제된 모션</strong>의 균형에서 시작됩니다.
         </p>
       </section>
 
-      <section class="cards" id="team">
-        <article class="card" data-tilt>
-          <h2>Direction</h2>
-          <p>브랜드 전략부터 디지털 경험 설계까지, 일관된 내러티브를 구축합니다.</p>
+      <section class="works" id="works">
+        <article class="work reveal" data-glow>
+          <p>01</p>
+          <h2>Immersive Commerce</h2>
+          <p>제품의 질감과 디테일을 3D/모션 레이어로 전달하는 커머스 경험.</p>
         </article>
-        <article class="card" data-tilt>
-          <h2>Design</h2>
-          <p>타이포그래피, 모션, 3D 레이어를 활용해 시각적 몰입감을 만듭니다.</p>
+        <article class="work reveal" data-glow>
+          <p>02</p>
+          <h2>Editorial Narrative</h2>
+          <p>긴 스크롤에서도 집중도를 유지하는 타이포 중심 스토리텔링.</p>
         </article>
-        <article class="card" data-tilt>
-          <h2>Development</h2>
-          <p>성능과 디테일을 동시에 잡는 인터랙티브 프런트엔드를 제작합니다.</p>
+        <article class="work reveal" data-glow>
+          <p>03</p>
+          <h2>Interactive Identity</h2>
+          <p>브랜드 아이덴티티를 마이크로 인터랙션으로 확장한 웹 시스템.</p>
         </article>
       </section>
 
-      <section class="cta" id="contact">
-        <h2>Let’s craft your next experience.</h2>
-        <a href="mailto:hello@studiomotion.com">hello@studiomotion.com</a>
+      <section class="contact reveal" id="contact">
+        <p>프로젝트 문의</p>
+        <a href="mailto:hello@orbit.studio">hello@orbit.studio</a>
       </section>
     </main>
 

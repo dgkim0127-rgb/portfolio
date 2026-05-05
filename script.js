@@ -3,25 +3,31 @@ const nav = document.querySelector('.nav');
 
 if (menuBtn && nav) {
   menuBtn.addEventListener('click', () => {
-    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-    menuBtn.setAttribute('aria-expanded', String(!expanded));
+    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', String(!isExpanded));
     nav.classList.toggle('open');
   });
 }
 
-const cards = document.querySelectorAll('[data-tilt]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
 
-cards.forEach((card) => {
-  card.addEventListener('mousemove', (e) => {
+document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+document.querySelectorAll('[data-glow]').forEach((card) => {
+  card.addEventListener('pointermove', (event) => {
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const rotateX = ((y / rect.height) - 0.5) * -8;
-    const rotateY = ((x / rect.width) - 0.5) * 8;
-    card.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    card.style.background = `radial-gradient(240px circle at ${x}px ${y}px, rgba(136,176,255,0.26), rgba(255,255,255,0.03) 60%)`;
   });
 
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(700px) rotateX(0) rotateY(0)';
+  card.addEventListener('pointerleave', () => {
+    card.style.background = 'linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))';
   });
 });
