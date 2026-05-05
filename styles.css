@@ -1,0 +1,96 @@
+:root {
+  --bg: #0b0b0d;
+  --panel: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.18);
+  --text: #f5f5f7;
+  --muted: #a3a3b1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at 20% 10%, #1a1a24 0%, var(--bg) 45%), var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 6vw;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+.logo { color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: 0.08em; }
+.menu-btn { display: none; }
+.nav { display: flex; gap: 1.2rem; }
+.nav a { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--text); }
+
+main { padding: 6vw; }
+.hero { max-width: 900px; margin-bottom: 5rem; }
+.eyebrow { color: var(--muted); text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
+.hero h1 { font-size: clamp(2rem, 6vw, 4.7rem); line-height: 1.05; margin: .6rem 0 1.4rem; }
+.lead { color: var(--muted); max-width: 64ch; line-height: 1.7; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transform-style: preserve-3d;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.card:hover { border-color: rgba(255,255,255,0.4); }
+.card h2 { margin-top: 0; }
+.card p { color: var(--muted); line-height: 1.6; }
+
+.cta {
+  margin-top: 4.5rem;
+  border-top: 1px solid var(--line);
+  padding-top: 2.2rem;
+}
+.cta a { color: #fff; text-decoration: none; font-weight: 600; }
+
+@media (max-width: 760px) {
+  .menu-btn {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: .45rem .7rem;
+  }
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 6vw;
+    background: #111118;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    padding: .5rem;
+  }
+  .nav.open { display: flex; }
+}
